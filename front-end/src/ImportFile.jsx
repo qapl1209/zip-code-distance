@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { saveAs } from 'file-saver';
+import React from 'react';
+// import axios from 'axios';
+// import { saveAs } from 'file-saver';
 
 export default class ImportFile extends React.Component {
     constructor(props) {
@@ -15,7 +15,7 @@ export default class ImportFile extends React.Component {
         const data = new FormData();
         data.append('file', e.target[0].files[0]);
         data.append('filename', 'newfile');
-        fetch('http://127.0.0.1:5000/upload', {
+        fetch('http://localhost:5000/upload', {
             method: 'POST',
             body: data,
         })

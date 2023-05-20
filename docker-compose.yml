@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  zip-front:
+    container_name: reactapp
+    image: zip-front
+    build:
+      context: front-end
+      dockerfile: Dockerfile
+    ports:
+    - "5173:5173"
+
+  zip-flask:
+    container_name: flaskapi
+    image: zip-flask
+    build:
+      context: python_module
+      dockerfile: Dockerfile
+    ports:
+    - "5000:5000"

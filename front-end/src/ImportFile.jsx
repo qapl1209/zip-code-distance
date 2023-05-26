@@ -15,7 +15,7 @@ export default class ImportFile extends React.Component {
         const data = new FormData();
         data.append('file', e.target[0].files[0]);
         data.append('filename', 'newfile');
-        fetch('http://localhost:5000/upload', {
+        fetch('http://192.168.74.20:4663/upload', {
             method: 'POST',
             body: data,
         })
@@ -41,6 +41,11 @@ export default class ImportFile extends React.Component {
         return (
             <div>
                 <h1>File Upload</h1>
+                <p>Click "Upload File" button, select .csv file from File system. 
+                *csv file must contain rows "Zip" and "Property Zip"
+                Click "Submit" button and "output_file.csv" will be downloaded automatically, 
+                containing the zip code distance in the last column "Zip Code Distance".</p>
+                
                 <form onSubmit={this.handleOnSubmit}>
                     <p><input
                             ref = {(ref) => {this.uploadInput = ref; }} 
